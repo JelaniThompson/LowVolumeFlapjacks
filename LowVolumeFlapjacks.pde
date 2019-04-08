@@ -44,11 +44,11 @@ void draw() {
 // Grab a random bird from the API
 void callBird() {
   clear();
-  GetRequest get = new GetRequest("http://shibe.online/api/shibes?count=[1-100]&urls=[true/false]&httpsUrls=[true/false]");
+  GetRequest get = new GetRequest("http://shibe.online/api/birds?count=[1-100]&urls=[true/false]&httpsUrls=[true/false]");
   get.send();
   JSONArray json = parseJSONArray(get.getContent());
   println(json);
-  birdImage = loadImage("https://cdn.shibe.online/shibes/" + json.getString(0) + ".jpg", "jpg");
+  birdImage = loadImage("https://cdn.shibe.online/birds/" + json.getString(0) + ".jpg", "jpg");
   delay(1000);
 }
  
